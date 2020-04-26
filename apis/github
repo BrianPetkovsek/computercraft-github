@@ -171,6 +171,7 @@ Tree.getChild = function(self, path)
 	end
 end
 Tree.getCommit = function(self)
+	self:getContents() -- Translate pseudo-SHAs like tag or branch names with actual SHAs.
 	return Commit.new(self.repo, self.sha)
 end
 Tree.iter = function(self)
