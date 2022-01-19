@@ -68,5 +68,9 @@ end
 
 rewriteDofiles()
 fs.move('github.rom/github', 'github')
+local h = fs.open("startup.lua", fs.exists("startup.lua") and "a" or "w")
+h.write("\nshell.setPath(shell.path()..\":github.rom/programs:\")\n")
+h.close()
 print("github by Eric Wieser installed!")
-dofile('github')
+dofile('github.rom/programs/github')
+
