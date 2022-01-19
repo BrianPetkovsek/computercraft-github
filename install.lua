@@ -1,4 +1,4 @@
--- Easy installer. Bootstrapped by http://pastebin.com/p8PJVxC4
+-- Easy installer. Bootstrapped by http://pastebin.com/uiWLXy3g
 
 local repo, tree = select(1,...)
 if not tree then
@@ -6,7 +6,7 @@ if not tree then
 	tree = repo or 'master'
 end
 if not repo then
-	repo = 'eric-wieser/computercraft-github'
+	repo = 'BrianPetkovsek/computercraft-github'
 end
 
 local REPO_BASE = ('https://raw.githubusercontent.com/%s/%s/'):format(repo, tree)
