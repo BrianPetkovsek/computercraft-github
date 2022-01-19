@@ -14,8 +14,7 @@ local REPO_BASE = ('https://raw.githubusercontent.com/%s/%s/'):format(repo, tree
 local FILES = {
 	'apis/dkjson',
 	'apis/github',
-	'programs/github',
-	'github'
+	'programs/github'
 }
 
 local function request(url_path)
@@ -61,13 +60,11 @@ for key, path in pairs(FILES) do
 	else
 		printError(('Unable to download %s'):format(path))
 		fs.delete('github.rom')
-		fs.delete('github')
 		break
 	end
 end
 
 rewriteDofiles()
-fs.delete("github.rom/github")
 local h = fs.open("startup.lua", fs.exists("startup.lua") and "a" or "w")
 h.write("\nshell.setPath(shell.path()..\":github.rom/programs:\")\n")
 h.close()
