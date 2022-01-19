@@ -67,6 +67,6 @@ for key, path in pairs(FILES) do
 end
 
 rewriteDofiles()
-fs.move('github.rom/github', 'github')
+shell.setPath(shell.path()..";github.rom/programs;")
 print("github by Eric Wieser installed!")
-dofile('github')
+dofile('github.rom/programs')
