@@ -67,7 +67,7 @@ for key, path in pairs(FILES) do
 end
 
 rewriteDofiles()
-fs.move('github.rom/github', 'github')
+fs.delete("github.rom/github")
 local h = fs.open("startup.lua", fs.exists("startup.lua") and "a" or "w")
 h.write("\nshell.setPath(shell.path()..\":github.rom/programs:\")\n")
 h.close()
