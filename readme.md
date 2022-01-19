@@ -7,7 +7,7 @@ Installation
 ------------
 The easiest way to install this project on your computercraft computer is by running:
 
-    pastebin run p8PJVxC4 [<branch>|<tag>]
+    pastebin run uiWLXy3g [<branch>|<tag>]
 
 The branch or tag argument is optional, and defaults to 'master'.
 
