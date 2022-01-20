@@ -26,7 +26,7 @@ local function request(url_path)
 end
 
 local function makeFile(file_path, data)
-	local path = '/github.rom/'..file_path
+	local path = 'github.rom/'..file_path
 	local dir = path:match('(.*/)')
 	fs.makeDir(dir)
 	local file = fs.open(path,'w')
@@ -36,12 +36,12 @@ end
 
 local function rewriteDofiles()
 	for _, file in pairs(FILES) do
-		local filename = ('/github.rom/%s'):format(file)
+		local filename = ('github.rom/%s'):format(file)
 		local r = fs.open(filename, 'r')
 		local data = r.readAll()
 		r.close()
 		local w = fs.open(filename, 'w')
-		data = data:gsub('dofile%("', 'dofile("/github.rom/')
+		data = data:gsub('dofile%("', 'dofile("github.rom/')
 		w.write(data)
 		w.close()
 	end
@@ -59,7 +59,7 @@ for key, path in pairs(FILES) do
 		makeFile(path, response)
 	else
 		printError(('Unable to download %s'):format(path))
-		fs.delete('/github.rom')
+		fs.delete('github.rom')
 		break
 	end
 end
