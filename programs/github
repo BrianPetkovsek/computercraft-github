@@ -1,8 +1,7 @@
 
-local function load_conf(f, )
-    local env = {}
+local function load_conf(f)
 
-    local chunk, err = loadfile(f, 'bt', env)
+    local chunk, err = loadfile(f, 'bt', _ENV)
 
     if not err then
         chunk()
