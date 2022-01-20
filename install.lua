@@ -65,10 +65,10 @@ for key, path in pairs(FILES) do
 end
 
 rewriteDofiles()
-local h = fs.open("startup.lua", fs.exists("startup.lua") and "a" or "w")
-h.write("\nshell.setPath(shell.path()..\":github.rom/programs:\")\n")
+local h = fs.open("/startup.lua", fs.exists("/startup.lua") and "a" or "w")
+h.write("\nshell.setPath(shell.path()..\":/github.rom/programs:\")\n")
 h.close()
-shell.setPath(shell.path()..":github.rom/programs:")
+shell.setPath(shell.path()..":/github.rom/programs:")
 print("github by Eric Wieser installed!")
-dofile('github.rom/programs/github')
+dofile('/github.rom/programs/github')
 

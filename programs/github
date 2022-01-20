@@ -1,16 +1,4 @@
-
-local function load_conf(f)
-
-    local chunk, err = loadfile(f, 'bt', _ENV)
-
-    if not err then
-        chunk()
-    end
-
-    return env, err
-end
-
-local github = load_conf("apis/github")
+local github = dofile("apis/github")
 
 local selectedAction = select(1, ...)
 local passed = { select(2, ...) }
