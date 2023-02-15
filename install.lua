@@ -65,10 +65,21 @@ for key, path in pairs(FILES) do
 end
 
 rewriteDofiles()
-local h = fs.open("startup.lua", fs.exists("startup.lua") and "a" or "w")
+
+-- Create startup dir and migrate potentially preexisting startup scripts
+if fs.exists("startup") then
+	if not fs.isDir("startup") then
+		fs.move("startup", "startup.old.temp")
+		fs.makeDir("startup")
+		fs.move("startup.old.temp", "startup/01-orig_startup")
+	end
+else
+	fs.makeDir("startup")
+end
+
+local h = fs.open("startup/00-github_path", "w")
 h.write("\nshell.setPath(shell.path()..\":github.rom/programs:\")\n")
 h.close()
 
 print("github by Eric Wieser installed!")
 dofile('github.rom/programs/github')
-
